@@ -1,7 +1,7 @@
 /*
 ============================================================================
 Name : 19.c
-Author : Som Shiv Gupta
+Author : Billa Abhignan
 Description : Create a FIFO file by
 a. mknod system call
 b. mkfifo library function
