@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Define file paths for storing data
 #define ADMIN_FILE "admins.dat"
 #define STUDENT_FILE "students.dat"
 #define FACULTY_FILE "faculty.dat"
