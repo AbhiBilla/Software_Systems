@@ -1,6 +1,6 @@
 # Lab Exercises
 
-## Hands-on List 1
+## Hands-on-List-1
 
 ### File Management
 
