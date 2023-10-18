@@ -7,41 +7,39 @@ Date: 5th Oct, 2023.
 ============================================================================
 */
 #include<stdio.h>
-#include<stdlib.h>
-#include<unistd.h>
 #include<fcntl.h>
-#include<string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
+#include<unistd.h>
 
-int main(void) {
-	const char *path = "fifo";
-	//int temp = open(path, O_CREAT | O_RDWR, 0666);
-	
-	char write_data[500];
-	
-	while(1) {
-	int open_fifo = open(path, O_RDWR);
-	if(open_fifo == -1) {
-		perror("Fifo not Opened");
-		exit(EXIT_FAILURE);
-	}
-	
-	int data_read = read(open_fifo, write_data, sizeof(write_data));
-	if(data_read == -1) {
-		perror("Reading in FIFO not happen");
-		return 0;
-	}
-	
-	printf("Data read from FIFO: %s\n", write_data);
-	
-	char read_data[] = "This is a response of wrting";
-	int data_write = write(open_fifo, read_data, sizeof(read_data));
-	if(data_write == -1) {
-		perror("Writing in Fifo not happen");
-		return 0;
-	}
-	
-	close(open_fifo);
-	}
+int main(){
+   char buff1[50];
+   char buff2[50]; 
+   
+   int fd1 = open("myfifo1", O_RDONLY);
+   int fd2 = open("myfifo2", O_WRONLY);
+   if(fd1==-1 || fd2==-1){
+     printf("unable to open files\n");
+     return 1;
+   }
+   
+   int fd_read = read(fd1, buff1, sizeof(buff1));
+   if(fd_read==-1){
+     perror("returns:");
+     close(fd1);
+     return 1;
+   }
+   printf("The text from program 1 is: %s\n", buff1);
+   
+   printf("Enter the text:\n");
+   scanf(" %[^\n]", buff2);
+   
+   int fd_write = write(fd2, buff2, sizeof(buff2));
+   if(fd_write==-1){
+     perror("returns:");
+     close(fd2);
+     return 1;
+   }
+   
+   close(fd1);
+   close(fd2);
+   return 1;
 }
