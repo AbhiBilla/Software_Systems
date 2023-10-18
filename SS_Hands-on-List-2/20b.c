@@ -15,7 +15,7 @@ Date: 4th Oct, 2023.
 #include <sys/stat.h>
 
 int main(void) {
-	const char *path = "./q2_20";
+	const char *path = "./fifo_file";
 	char data[500];
 	
 	int open_fifo = open(path, O_RDONLY);
