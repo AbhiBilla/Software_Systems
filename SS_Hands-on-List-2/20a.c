@@ -15,8 +15,8 @@ Date: 4th Oct, 2023.
 #include <sys/stat.h>
 
 int main(void) {
-	const char *path = "./q2_20";
-	char data[] = "Hello my name is Som Shiv, and It is code for Fifo communication";
+	const char *path = "./fifo_file";
+	char data[] = "Hello my name is Billa \nData from FIFO communication";
 	
 	//Create the FIFO
 	int fd = mkfifo(path, 0666);
